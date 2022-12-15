@@ -7,7 +7,7 @@ var yourAceCount = 0;
 var hidden;
 var deck;
 
-var canHit = true; //allows the player (you) to draw while yourSum <= 21
+var canHit = true;
 
 window.onload = function() {
     buildDeck();
@@ -25,7 +25,6 @@ function buildDeck() {
             deck.push(values[j] + "-" + types[i]);
         }
     }
-    // console.log(deck);
 }
 
 function shuffleDeck() {
@@ -125,7 +124,7 @@ function stay() {
             message = "You lose!"
         }
     }
-    //both you and dealer <= 21
+
     else if (yourSum == dealerSum) {
         message = "Tie!";
     }
@@ -142,10 +141,10 @@ function stay() {
 }
 
 function getValue(card) {
-    let data = card.split("-"); // "4-C" -> ["4", "C"]
+    let data = card.split("-");
     let value = data[0];
 
-    if (isNaN(value)) { //A J Q K
+    if (isNaN(value)) {
         if (value == "A") {
             return 11;
         }
