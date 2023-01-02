@@ -4,9 +4,9 @@ var yourSum = 0;
 var dealerAceCount = 0;
 var yourAceCount = 0; 
 
-var hidden;
-var deck;
+var hidden, deck;
 
+var ace = false;
 var canHit = true;
 
 window.onload = function() {
@@ -120,9 +120,6 @@ function stay() {
         if ((dealerSum > 21) || (dealerSum >= 17 && dealerSum < yourSum)) {
             message = "You win!"
         }
-        if ((dealerSum == 21)) {
-            message = "You lose!"
-        }
     }
 
     else if (yourSum == dealerSum) {
@@ -160,6 +157,11 @@ function checkAce(card) {
     return 0;
 }
 
+function checkBlackjack(){
+    if (getValue(card[1]) == 10) {
+        stay();
+    }
+}
 function reduceAce(playerSum, playerAceCount) {
     while (playerSum > 21 && playerAceCount > 0) {
         playerSum -= 10;
