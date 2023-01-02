@@ -143,7 +143,12 @@ function getValue(card) {
 
     if (isNaN(value)) {
         if (value == "A") {
-            return 11;
+            if(dealerSum || yourSum > 10){
+                return 11;
+            }
+            else {
+                return 1;
+            }
         }
         return 10;
     }
